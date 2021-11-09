@@ -1,0 +1,68 @@
+.wrapper {
+  margin: auto;
+  padding: 10px;
+  -webkit-box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  margin-top: 10%;
+  background-color: white;
+
+  .calculator-label {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .pay-pal-label {
+    font-weight: bold;
+    font-size: 24px;
+
+    span:first-child {
+      color: #003087;
+    }
+
+    span:nth-child(2) {
+      color: #009cde;
+    }
+  }
+
+  .tcg-player-label {
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .mecari-label {
+    color: #5356ee;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+
+
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+   .wrapper {
+       
+   }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}
+
