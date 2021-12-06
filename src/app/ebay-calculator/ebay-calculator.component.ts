@@ -19,7 +19,6 @@ export class EbayCalculatorComponent implements OnInit {
   };
 
   public ebayForm: any;
-
   public ebayCategories: any[] = [];
 
 
@@ -28,11 +27,11 @@ export class EbayCalculatorComponent implements OnInit {
   ngOnInit(): void {
 
     this.createForms();
-
-    this.ebayCategories = Object.values(EbayCategoryEnum);
+    this.ebayCategories = (Object.values(EbayCategoryEnum)).sort((one, two) => (one > two ? 1 : -1));
     this.ebayForm.valueChanges.subscribe((data: any) => {
       this.calculateEbayProfit();
     });
+
   }
 
   /**
@@ -61,7 +60,7 @@ export class EbayCalculatorComponent implements OnInit {
     let salesTax = Number(this.ebayForm.get('salesTax').value);
 
     let orderTotal = ((soldPrice + shippingBuyer) + ((soldPrice + shippingBuyer) * salesTax));
-    let totalFees = (orderTotal * ebayFees.fee) + ebayFees.perOrderFee;
+    let totalFees = (orderTotal * ebayFees.fee) + ebayFees.finalValueFee;
     let profit = (soldPrice + shippingBuyer) - totalFees;
 
     this.ebay = {
@@ -79,6 +78,14 @@ export class EbayCalculatorComponent implements OnInit {
     if (platform == 'ebay') {
       //seller tac
     }
+  }
+
+  /**
+   * clearForm
+   */
+  public clearForm() {
+    this.ebayForm.reset();
+    this.ebayForm.get('category').setValue(EbayCategoryEnum.mostCategories);
   }
 
 }

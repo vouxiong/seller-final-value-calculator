@@ -16,7 +16,7 @@
         <span class="input-group-text fw-bold" id="basic-addon1">$</span>
       </div>
       <input class="form-control" formControlName="shippingCost" numbersOnly />
-    </div>    
+    </div>
   </div>
   <div class="col-12 mb-2">
     <label class="fw-bold">Shipping Cost - </label><i> Buyer Pays</i>
@@ -25,7 +25,7 @@
         <span class="input-group-text fw-bold" id="basic-addon1">$</span>
       </div>
       <input class="form-control" formControlName="shippingCostBuyer" numbersOnly />
-    </div>    
+    </div>
   </div>
   <div class="col-12">
     <label class="fw-bold">Sales Tax</label>
@@ -34,32 +34,38 @@
   <div class="col-12">
     <label class="fw-bold">Category</label>
     <select class="form-select" formControlName="category">
+      <option value="null">-- Category --</option>
       <option *ngFor="let category of ebayCategories" value="{{category}}">{{category}}</option>
     </select>
   </div>
-  <!--<div class="mb-1 mt-2 p-2" *ngIf="ebay.profit && ebayForm.get('soldPrice').value > 0">
-    <h2>Order Total ${{ ebay?.orderTotal }}</h2>
+  <div class="col-12">
+    <table class="table mt-3" *ngIf="ebay.profit && ebayForm.get('soldPrice').value > 0">
+      <thead class="thead-dark">
+        <tr>
+          <td>Order Total</td>
+          <td>Fees</td>
+          <td>Total Profit</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>$ {{ ebay?.orderTotal }}</td>
+          <td>$ {{ ebay?.fees }}</td>
+          <td>$ {{ ebay.profit }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="mb-1 mt-2 p-2" *ngIf="ebay.profit && ebayForm.get('soldPrice').value > 0">
-    <h2>Fees ${{ ebay?.fees }}</h2>
+  <!--<div class="col-12-lg">
+    <pre>{{ebayForm.value | json}}</pre>
   </div>
-  <div class="mt-2 p-2" *ngIf="ebay.profit && ebayForm.get('soldPrice').value > 0">
-    <h2>Profit ${{ ebay.profit }}</h2>
-  </div>--> 
-  <table class="table mt-3" *ngIf="ebay.profit && ebayForm.get('soldPrice').value > 0">
-    <thead class="thead-dark">
-      <tr>
-        <td>Order Total</td>
-        <td>Fees</td>
-        <td>Total Profit</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>$ {{ ebay?.orderTotal }}</td>
-        <td>$ {{ ebay?.fees }}</td>
-        <td>$ {{ ebay.profit }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="col-12">
+    dirty: {{ebayForm.dirty}}
+  </div>
+  <div class="col-12">
+    touched: {{ebayForm.touched}}
+  </div>-->
+  <div class="col-lg-12 clear-button-wrapper">
+    <button (click)="clearForm()" class="col-lg-12 btn">Clear</button>
+  </div>
 </form>

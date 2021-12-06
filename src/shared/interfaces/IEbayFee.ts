@@ -4,5 +4,5 @@ export interface EbayFee {
   category: EbayCategoryEnum,
   fee: number,
   overValueFee: number,
-  perOrderFee: number
+  finalValueFee: number
 }
